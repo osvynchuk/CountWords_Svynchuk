@@ -2,11 +2,11 @@
 #include <thread>
 #include <filesystem>
 #include <fstream>
-#include "queue.h"
-#include <strstream>
+#include <sstream>
 #include <atomic>
 #include <unordered_map>
 #include <cctype>
+#include "queue.h"
 namespace fs = std::filesystem;
 
 static const int FileQueueMaxSizeInBytes = 256 * 1024 * 1024;

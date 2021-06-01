@@ -6,7 +6,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <unordered_map>
-#include <strstream>
+#include <sstream>
 
 namespace cpp_training {
 
@@ -44,7 +44,7 @@ public:
         T ret;
         {
             std::unique_lock lock(m_lock);
-            m_get_cond.wait(lock, [this](){return m_byte_size > 0 || noblock_on_get;});
+            m_get_cond.wait(lock, [this](){return !m_queue.empty() || noblock_on_get;});
             if (!m_queue.empty()) {
               ret = std::move( m_queue.back() );
               m_queue.pop_back();
