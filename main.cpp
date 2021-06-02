@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <atomic>
+#include <functional>
 #include <unordered_map>
 #include <cctype>
 #include "queue.h"
